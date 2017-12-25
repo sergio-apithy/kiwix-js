@@ -39,6 +39,7 @@ module.exports = {
         browser
             .url('http://localhost:8080/')
             .waitForElementVisible('#archiveFiles', 20000)
+            // Select the ZIM archive of Ray Charles
             .execute(function() {
                 window.setRemoteArchives('http://localhost:8080/tests/wikipedia_en_ray_charles_2015-06.zimaa',
                     'http://localhost:8080/tests/wikipedia_en_ray_charles_2015-06.zimab',
@@ -59,16 +60,23 @@ module.exports = {
             })
             .waitForElementVisible('#formArticleSearch', 20000)
             .waitForElementVisible('#searchArticles', 20000)
+            // Start a search with the prefix "Ray"
             .setValue('#prefix', "Ray")
             .click('#searchArticles')
             .waitForElementVisible('#articleList', 20000)
+            // Choose the article "Ray Charles"
             .useXpath()
             .waitForElementVisible("//div[@id='articleList']/a[text()='Ray Charles']", 20000)
             .click("//div[@id='articleList']/a[text()='Ray Charles']")
             .useCss()
             .frame('articleContent')
-                .waitForElementPresent('#mweQ', 2000000)
-                .assert.containsText('#mweQ', 'Life and career')
+            // Check the text in the article
+            .waitForElementPresent('#mweQ', 2000000)
+            .assert.containsText('#mweQ', 'Life and career')
+            .useXPath()
+            // Wait for a particular image to be visible and check its size
+            .waitForElementVisible("//td[@id='mwCA']/img[@src and string-length(@src)!=0]", 20000)
+            .assert.attributeEquals("//td[@id='mwCA']/img[@src and string-length(@src)!=0]", "naturalWidth", "250")
             .end();
     }
 };
