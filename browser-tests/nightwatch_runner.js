@@ -73,10 +73,12 @@ module.exports = {
             // Check the text in the article
             .waitForElementPresent('#mweQ', 2000000)
             .assert.containsText('#mweQ', 'Life and career')
-            .useXPath()
+            .useXpath()
             // Wait for a particular image to be visible and check its size
             .waitForElementVisible("//td[@id='mwCA']/img[@src and string-length(@src)!=0]", 20000)
             .assert.attributeEquals("//td[@id='mwCA']/img[@src and string-length(@src)!=0]", "naturalWidth", "250")
+            // Wait for the CSS to be applied
+            
             .end();
     }
 };
