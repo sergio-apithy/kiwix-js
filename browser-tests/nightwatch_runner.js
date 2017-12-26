@@ -75,10 +75,11 @@ module.exports = {
             .assert.containsText('#mweQ', 'Life and career')
             .useXpath()
             // Wait for a particular image to be visible and check its size
-            .waitForElementVisible("//td[@id='mwCA']/img", 20000)
-            .assert.attributeEquals("//td[@id='mwCA']/img", "naturalWidth", "250")
-            // Wait for the CSS to be applied
-            
+            .waitForElementVisible("//td[@id='mwCA']/p/span/img", 20000)
+            .assert.attributeEquals("//td[@id='mwCA']/p/span/img", "naturalWidth", "250")
+            // Check that the CSS style has been applied
+            .useCss()
+            .assert.cssProperty("#mwBA", "float", "right");
             .end();
     }
 };
