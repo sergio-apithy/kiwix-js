@@ -79,7 +79,7 @@ module.exports = {
             .assert.attributeEquals("//td[@id='mwCA']/p/span/img", "naturalWidth", "250")
             // Check that the CSS style has been applied
             .useCss()
-            .assert.cssProperty("#mwBA", "float", "right");
+            .assert.cssProperty("#mwBA", "float", "right")
             .end();
     }
 };
