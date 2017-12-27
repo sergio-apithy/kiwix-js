@@ -1,6 +1,6 @@
 # Kiwix JS
 
-## Summary
+## Summary
 Kiwix is an offline Wikipedia viewer. See the official site: http://www.kiwix.org/
 
 This is a browser extension developed in HTML5/Javascript.
@@ -38,6 +38,9 @@ These platforms are not officially supported, but it has recently been reported 
 
 - Microsoft Edge 40
 - Microsoft Internet Explorer 11
+
+### Current status of automatic tests on different browsers
+[![Build Status](https://saucelabs.com/browser-matrix/kiwix.svg)]
 
 ## License
 This application is released under the GPL v3 license. See http://www.gnu.org/licenses/ or the included LICENSE-GPLv3.txt file
