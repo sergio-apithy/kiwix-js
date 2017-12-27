@@ -71,7 +71,7 @@ module.exports = {
             .frame('articleContent')
             // Check the text in the article
             .useCss()
-            .waitForElementPresent('#mweQ', 2000000)
+            .waitForElementPresent('#mweQ', 20000)
             .assert.containsText('#mweQ', 'Life and career')
             // Wait for a particular image to be visible and check its size
             .useXpath()
@@ -84,7 +84,7 @@ module.exports = {
             // Click on a hypertext link to another article (Quincy Jones)
             .click("#mwB0o")
             // Check the text of the article "Quincy Jones"
-            .waitForElementPresent('#mwBQg', 2000000)
+            .waitForElementPresent('#mwBQg', 20000)
             .assert.containsText('#mwBQg', 'Concerts')
             // Wait for a particular image to be visible and check its size
             .waitForElementVisible("#mwAiI", 20000)
