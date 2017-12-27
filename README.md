@@ -36,11 +36,11 @@ Windows Mobile >=10 support is currently in development and is installable as a 
 ### Platforms that are unofficially reported to work
 These platforms are not officially supported, but it has recently been reported to work on :
 
-- Microsoft Edge 40
+- Microsoft Edge
 - Microsoft Internet Explorer 11
 
 ### Current status of automatic tests on different browsers
-[![Build Status](https://saucelabs.com/browser-matrix/kiwix.svg)]
+![Build Status](https://saucelabs.com/browser-matrix/kiwix.svg)
 
 ## License
 This application is released under the GPL v3 license. See http://www.gnu.org/licenses/ or the included LICENSE-GPLv3.txt file

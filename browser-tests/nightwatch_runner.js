@@ -69,7 +69,7 @@ module.exports = {
             .waitForElementVisible("//div[@id='articleList']/a[text()='Ray Charles']", 20000)
             .click("//div[@id='articleList']/a[text()='Ray Charles']")
             .frame('articleContent')
-            // Check the text in the article
+            // Check the text in the article "Ray Charles"
             .useCss()
             .waitForElementPresent('#mweQ', 20000)
             .assert.containsText('#mweQ', 'Life and career')
@@ -81,8 +81,10 @@ module.exports = {
             .useCss()
             // TODO : how can we be sure that the CSS has already been applied?
             .assert.cssProperty("#mwBA", "float", "right")
-            // Click on a hypertext link to another article (Quincy Jones)
+            // Click on a hypertext link to another article "Quincy Jones"
+            .frame('articleContent')
             .click("#mwBTI")
+            .frame('articleContent')
             // Check the text of the article "Quincy Jones"
             .waitForElementPresent('#mwBQg', 20000)
             .assert.containsText('#mwBQg', 'Concerts')
