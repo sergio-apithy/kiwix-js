@@ -62,7 +62,6 @@ module.exports = {
             .waitForElementVisible('#searchArticles', 20000)
             // Start a search with the prefix "Ray"
             .setValue('#prefix', "Ray")
-            .click('#searchArticles')
             .waitForElementVisible('#articleList', 20000)
             // Choose the article "Ray Charles"
             .useXpath()
@@ -83,7 +82,6 @@ module.exports = {
             .assert.cssProperty("#mwBA", "float", "right")
             // Click on a hypertext link to another article (Quincy Jones)
             .click("#mwB0o")
-            .frame('articleContent')
             // Check the text of the article "Quincy Jones"
             .waitForElementPresent('#mwBQg', 20000)
             .assert.containsText('#mwBQg', 'Concerts')
