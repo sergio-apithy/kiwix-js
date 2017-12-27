@@ -68,17 +68,29 @@ module.exports = {
             .useXpath()
             .waitForElementVisible("//div[@id='articleList']/a[text()='Ray Charles']", 20000)
             .click("//div[@id='articleList']/a[text()='Ray Charles']")
-            .useCss()
             .frame('articleContent')
             // Check the text in the article
+            .useCss()
             .waitForElementPresent('#mweQ', 2000000)
             .assert.containsText('#mweQ', 'Life and career')
-            .useXpath()
             // Wait for a particular image to be visible and check its size
+            .useXpath()
             .waitForElementVisible("//td[@id='mwCA']/p/span/img", 20000)
             .assert.attributeEquals("//td[@id='mwCA']/p/span/img", "naturalWidth", "250")
-            // Check that the CSS style has been applied
+            // Check the CSS style
             .useCss()
+            // TODO : how can we be sure that the CSS has already been applied?
+            .assert.cssProperty("#mwBA", "float", "right")
+            // Click on a hypertext link to another article (Quincy Jones)
+            .click("#mwB0o")
+            // Check the text of the article "Quincy Jones"
+            .waitForElementPresent('#mwBQg', 2000000)
+            .assert.containsText('#mwBQg', 'Concerts')
+            // Wait for a particular image to be visible and check its size
+            .waitForElementVisible("#mwAiI", 20000)
+            .assert.attributeEquals("#mwAiI", "naturalWidth", "180")
+            // Check the CSS style
+            // TODO : how can we be sure that the CSS has already been applied?
             .assert.cssProperty("#mwBA", "float", "right")
             .end();
     }
