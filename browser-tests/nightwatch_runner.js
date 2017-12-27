@@ -58,6 +58,7 @@ module.exports = {
                     'http://localhost:8080/tests/wikipedia_en_ray_charles_2015-06.zimao'
                     );
             })
+            
             .waitForElementVisible('#formArticleSearch', 20000)
             .waitForElementVisible('#searchArticles', 20000)
             // Start a search with the prefix "Ray"
@@ -68,6 +69,7 @@ module.exports = {
             .useXpath()
             .waitForElementVisible("//div[@id='articleList']/a[text()='Ray Charles']", 20000)
             .click("//div[@id='articleList']/a[text()='Ray Charles']")
+    
             .frame('articleContent')
             // Check the text in the article "Ray Charles"
             .useCss()
@@ -81,7 +83,9 @@ module.exports = {
             .useCss()
             // TODO : how can we be sure that the CSS has already been applied?
             .assert.cssProperty("#mwBA", "float", "right")
+    
             // Click on a hypertext link to another article "Quincy Jones"
+            // It is necessary to move to the link before clicking, because it might be hidden below the bottom bar
             .moveToElement('#mwBTI', 10, 10)
             .click("#mwBTI")
             // Check the text of the article "Quincy Jones"
@@ -93,6 +97,19 @@ module.exports = {
             // Check the CSS style
             // TODO : how can we be sure that the CSS has already been applied?
             .assert.cssProperty("#mwBA", "float", "right")
+    
+            // Use the back button of the UI, to go back to "Ray Charles" article
+            .frame()
+            .click("#btnBack")
+            .frame('articleContent')
+            // Check the text in the article "Ray Charles"
+            .useCss()
+            .waitForElementPresent('#mweQ', 20000)
+            .assert.containsText('#mweQ', 'Life and career')
+            // Wait for a particular image to be visible and check its size
+            .useXpath()
+            .waitForElementVisible("//td[@id='mwCA']/p/span/img", 20000)
+            .assert.attributeEquals("//td[@id='mwCA']/p/span/img", "naturalWidth", "250")
             .end();
     }
 };
