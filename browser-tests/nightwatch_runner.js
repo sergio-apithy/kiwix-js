@@ -85,8 +85,7 @@ module.exports = {
             .assert.cssProperty("#mwBA", "float", "right")
     
             // Click on a hypertext link to another article "Quincy Jones"
-            // It is necessary to move to the link before clicking, because it might be hidden below the bottom bar
-            .moveToElement('#mwBTI', 10, 10)
+            .getLocationInView("#mwBTI")
             .click("#mwBTI")
             // Check the text of the article "Quincy Jones"
             .waitForElementPresent('#mwBQg', 20000)
