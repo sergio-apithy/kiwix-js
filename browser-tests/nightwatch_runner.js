@@ -86,8 +86,10 @@ module.exports = {
     
             // Click on a hypertext link to another article "Quincy Jones"
             // We first need to scroll to it, so that it is visible and clickable in the window
+            // Else it is sometimes under the bottom bar, and can not be clicked on
             .getLocationInView("#mwBTI", function(result) {
                 browser.execute('scrollTo(' + result.value.x +',' + result.value.y+')')
+                .pause(1000)
                 .click("#mwBTI");
             })
             // Check the text of the article "Quincy Jones"
