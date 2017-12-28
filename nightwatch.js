@@ -52,7 +52,7 @@ module.exports = {
         "version": "45.0",
         "javascriptEnabled": true,
         "acceptSslCerts": true,
-        "elementScrollBehavior": 0,
+        "elementScrollBehavior": 1,
         "build": "build-" + TRAVIS_JOB_NUMBER,
         "tunnel-identifier": TRAVIS_JOB_NUMBER
       }
@@ -62,7 +62,7 @@ module.exports = {
         "browserName": "firefox",
         "javascriptEnabled": true,
         "acceptSslCerts": true,
-        "elementScrollBehavior": 0,
+        "elementScrollBehavior": 1,
         "build": "build-" + TRAVIS_JOB_NUMBER,
         "tunnel-identifier": TRAVIS_JOB_NUMBER
       }
@@ -73,7 +73,7 @@ module.exports = {
         "version": "58.0",
         "javascriptEnabled": true,
         "acceptSslCerts": true,
-        "elementScrollBehavior": 0,
+        "elementScrollBehavior": 1,
         "build": "build-" + TRAVIS_JOB_NUMBER,
         "tunnel-identifier": TRAVIS_JOB_NUMBER
       }
@@ -83,7 +83,7 @@ module.exports = {
         "browserName": "chrome",
         "javascriptEnabled": true,
         "acceptSslCerts": true,
-        "elementScrollBehavior": 0,
+        "elementScrollBehavior": 1,
         "build": "build-" + TRAVIS_JOB_NUMBER,
         "tunnel-identifier": TRAVIS_JOB_NUMBER
       }
@@ -93,7 +93,7 @@ module.exports = {
         "browserName": "MicrosoftEdge",
         "javascriptEnabled": true,
         "acceptSslCerts": true,
-        "elementScrollBehavior": 0,
+        "elementScrollBehavior": 1,
         "build": "build-" + TRAVIS_JOB_NUMBER,
         "tunnel-identifier": TRAVIS_JOB_NUMBER
       }
@@ -103,7 +103,7 @@ module.exports = {
         "browserName": "internet explorer",
         "javascriptEnabled": true,
         "acceptSslCerts": true,
-        "elementScrollBehavior": 0,
+        "elementScrollBehavior": 1,
         "build": "build-" + TRAVIS_JOB_NUMBER,
         "tunnel-identifier": TRAVIS_JOB_NUMBER
       }
