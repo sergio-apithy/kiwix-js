@@ -85,8 +85,9 @@ module.exports = {
             .assert.cssProperty("#mwBA", "float", "right")
     
             // Click on a hypertext link to another article "Quincy Jones"
+            // We first need to scroll to it, so that it is visible and clickable in the window
             .getLocationInView("#mwBTI", function(result) {
-                browser.execute('scrollTo(result.value.x, result.value.y)')
+                browser.execute('scrollTo(' + result.value.x +',' + result.value.y+')')
                 .click("#mwBTI");
             })
             // Check the text of the article "Quincy Jones"
