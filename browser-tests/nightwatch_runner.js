@@ -86,7 +86,7 @@ module.exports = {
     
             // Click on a hypertext link to another article "Quincy Jones"
             .getLocationInView("#mwBTI", function(result) {
-                browser.execute('scrollTo(x, y)')
+                browser.execute('scrollTo(result.value.x, result.value.y)')
                 .click("#mwBTI");
             })
             // Check the text of the article "Quincy Jones"
