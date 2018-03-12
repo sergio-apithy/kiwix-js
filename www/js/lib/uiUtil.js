@@ -74,13 +74,16 @@ define([], function() {
     }
         
     var regexpRemoveUrlParameters = new RegExp(/([^\?]+)\?.*$/);
+    var regexpRemoveAnchor = new RegExp(/([^#]+)#.*$/);
     
+    /**
+     * Removes parameters and anchors from a URL
+     * @param {type} url
+     * @returns {String} same URL without its parameters and anchors
+     */
     function removeUrlParameters(url) {
-        if (regexpRemoveUrlParameters.test(url)) {
-            return regexpRemoveUrlParameters.exec(url)[1];
-        } else {
-            return url;
-        }
+        var urlWithoutParameters = regexpRemoveUrlParameters.test(url) ? url.match(regexpRemoveUrlParameters)[1] : url;
+        return regexpRemoveAnchor.test(urlWithoutParameters) ? urlWithoutParameters.match(regexpRemoveAnchor)[1] : urlWithoutParameters;
     }
 
     /**

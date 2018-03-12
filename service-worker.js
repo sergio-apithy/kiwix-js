@@ -37,6 +37,7 @@ self.addEventListener('activate', function(event) {
 });
 
 var regexpRemoveUrlParameters = new RegExp(/([^\?]+)\?.*$/);
+var regexpRemoveAnchor = new RegExp(/([^#]+)#.*$/);
 
 // This function is duplicated from uiUtil.js
 // because using requirejs would force to add the 'fetch' event listener
@@ -44,12 +45,15 @@ var regexpRemoveUrlParameters = new RegExp(/([^\?]+)\?.*$/);
 // in recent versions of the browsers.
 // Cf https://bugzilla.mozilla.org/show_bug.cgi?id=1181127
 // TODO : find a way to avoid this duplication
+
+/**
+ * Removes parameters and anchors from a URL
+ * @param {type} url
+ * @returns {String} same URL without its parameters and anchors
+ */
 function removeUrlParameters(url) {
-    if (regexpRemoveUrlParameters.test(url)) {
-        return regexpRemoveUrlParameters.exec(url)[1];
-    } else {
-        return url;
-    }
+    var urlWithoutParameters = regexpRemoveUrlParameters.test(url) ? url.match(regexpRemoveUrlParameters)[1] : url;
+    return regexpRemoveAnchor.test(urlWithoutParameters) ? urlWithoutParameters.match(regexpRemoveAnchor)[1] : urlWithoutParameters;
 }
     
 console.log("ServiceWorker startup");
